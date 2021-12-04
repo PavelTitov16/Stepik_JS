@@ -5,10 +5,9 @@ JavaScript. Простейшие операции
 удвоенное значение остатка от деления произведения переменных "a" и "b" на их сумму.
 
 Решение:
-
 function testOperation(a, b) {
     var x;
-    x=2*(a*b%(a+b));
+    x = 2 *(a * b % (a + b));
     return x;
 }
 
@@ -19,10 +18,9 @@ JavaScript. Ветвление
 значение суммы переменных "a" и "b" в случае если  a > b или их произведение в остальных случаях.
 
 Решение:
-
 function testIf(a, b) {
     var x;
-    x=(a>b)?(a+b):a*b
+    x = (a > b) ? (a + b) : a * b
     return x;
 }
 
@@ -32,15 +30,14 @@ function testIf(a, b) {
 и их произведение  в остальных случаях.
 
 Решение:
-
 function testIf(a, b) {
     var x;
-    if (a<b) {
-     x=a+b;
-    } else if (a>b) {
-        x=a-b;
+    if (a < b) {
+     x = a + b;
+    } else if (a > b) {
+        x = a - b;
     } else {
-        x=a*b;
+        x = a * b;
     }
     return x;
 }
@@ -52,39 +49,38 @@ function testIf(a, b) {
  буквы - "Ноль", "Один", "Два" и т.д.
 
 Решение:
-
 function testCase(a) {
     var x;
     switch (a) {
         case 0:
-            x="Ноль";
+            x = "Ноль";
             break;
         case 1:
-            x="Один";
+            x = "Один";
             break;
           case 2:
-            x="Два";
+            x = "Два";
             break;  
             case 3:
-            x="Три";
+            x = "Три";
             break; 
             case 4:
-            x="Четыре";
+            x = "Четыре";
             break; 
             case 5:
-            x="Пять";
+            x = "Пять";
             break;  
             case 6:
-            x="Шесть";
+            x = "Шесть";
             break;  
             case 7:
-            x="Семь";
+            x = "Семь";
             break; 
             case 8:
-            x="Восемь";
+            x = "Восемь";
             break;  
             case 9:
-            x="Девять";
+            x = "Девять";
             break;  
         default:
     }
@@ -100,13 +96,12 @@ JavaScript. Циклы
 1 * 2 * 3 * 4 * 5
 
 Решение:
-
 function testFactorial(a) {
     var x;
     var i;
-    x=1;
-    for (i=1; i<=a; i=i+1) {
-      (x=x*i);
+    x = 1;
+    for (i = 1; i <= a; i = i + 1) {
+      (x = x * i);
 }
     return x;
 }
@@ -117,14 +112,312 @@ function testFactorial(a) {
 
 Решение:
 
+Способ 1 через "do... while"
+
 function testWhile(a) {
-    var x=0;
-    let i=0;
+    var x = 0;
+    let i = 0;
     do {
         if (i%2==0){
-            x+=i
+            x += i
         }
         i++
-    }  while (i<=a);
+    }  while (i <= a);
     return x;
+}
+
+Способ 2 через "while"
+
+function testWhile(a) {
+    var x = 0;
+    let i = 0;
+    while (i <= a) {
+        
+        if (i%2==0) {
+            x += i;
+        }
+        i++
+    }
+    return x;
+}
+
+Способ 3 через "for"
+
+function testWhile(a) {
+    var x = 0;
+    for (let i = 0; i <= a; i++) {
+        if (i%2 != 0) continue;
+        x += i;
+    }
+    return x;
+}
+
+JavaScript. Функции
+
+Задача повышенной сложности
+
+Дано натуральное число n. Написать рекурсивную функцию, которая возвращает строку чисел от 1 до n, разделенных пробелом.
+
+Основная сложность задачи заключается в том, что ее необходимо решить с использованием рекурсии. Кроме платформы Stepik проверять 
+решение будут в том числе и другие студенты, с помощью механизма рецензирования.
+
+Чтобы получить максимальный балл за задачу, необходимо выполнить следующие условия:
+
+Верно решить задачу (задача подсвечена зеленым цветом)
+Убедиться еще раз, что задача решена с помощью рекурсии (это единственный критерий, по которому вас будут оценивать другие студенты)
+
+Решение: 
+function my_function(n) {
+    return (n == 1) ? n : (my_function(n-1) + " " + n);
+}
+
+JavaScript. Строки
+
+Задача 1
+В этом задании в нашу функцию testStr передаются две строки. Нужно вернуть из функции их суммарную длину.
+
+Sample Input:
+5794675 181683
+Sample Output:
+13
+
+Решение:
+function testStr(a, b) {
+    return (a + b).length;
+}
+
+Задача 2
+В этом задании в нашу функцию testStr первым параметром передается строка (переменная str), а вторым - число (переменная n) . 
+Нужно вернуть из функции символ строки , порядковый номер которого указан в переданном в функцию числе.
+
+Sample Input:
+Ithardlycousinmealways
+19
+Sample Output:
+w
+
+Решение: 
+function testStr(str, n) {
+return str[n-1];
+}
+
+Задача 3
+В этом задании в нашу функцию testStr передаются две строки. Нужно вернуть из функции строку, которая будет 
+включать в себя обе этих строки, преобразовав в первой строке все буквы в заглавные, а во второй - в строчные.
+
+Sample Input:
+Hello World!
+Sample Output:
+HELLOworld!
+
+Решение:
+function testStr(a, b) {
+    var x = a.toUpperCase().concat(b.toLowerCase());
+    return x;
+}
+
+Задача 4
+В этом задании в нашу функцию testStr передаются две строки. Нужно вернуть индекс позиции, 
+с которой начинается вхождение второй строки в первую.
+
+Sample Input 1:
+This is a test string
+test
+Sample Output 1:
+10
+
+Sample Input 2:
+This is a test string for testing
+test
+Sample Output 2:
+10
+
+Решение:
+function testStr(a, b) {
+return (a.indexOf(b));
+}
+
+JavaScript. Массивы
+
+Задача 1
+В этом задании в нашу функцию testArray передаются два массива случайной длины заполненные случайными числами. 
+Нужно сосчитать сумму всех элементов обоих массивов и возвратить ее из функции.
+
+Sample Input:
+[8, 1, 1, 7, 4, 0]  [5, 8, 5, 4, 8]
+Sample Output:
+51
+
+Решение:
+function testArray(a, b) {
+    let result = 0;
+    let x = a.concat(b);
+    for (let i = 0; i<x.length; i++){
+        result += x[i];}
+    return result;
+}
+
+Задача 2
+В этом задании в нашу функцию testArray передаются две строки случайной длины и содержания. 
+Нужно составить из символов этих строк один массив (каждый символ строки становится отдельным элементом массива), 
+затем добавить первым элементом  массива текстовое значение "Иванов", и вернуть из функции все элементы в обратном порядке, 
+преобразовав в строку. 
+
+Sample Input:
+4326 297515
+Sample Output:
+5157926234Иванов
+
+Решение:
+function testArray(a, b) {
+    var myString = a.concat(b);
+    var myArray = myString.split("");
+    myArray.unshift("Иванов");
+    myArray.reverse();
+    var x = myArray.join("")
+    return x;
+}
+
+JavaScript. Дата и время
+
+Задача 1
+В этом задании в нашу функцию testDateTime передаются две строки вида "03 November 2017 04:17".
+Нужно превратить строки в даты, сравнить их. Для той, что больше получить день недели и вернуть его из функции.
+
+Название дня недели должно быть по-русски, с большой буквы, например: "Понедельник".
+
+Sample Input 1:
+19 October 1909 10:27
+28 March 1909 00:59
+Sample Output 1:
+Вторник
+
+Sample Input 2:
+04 August 1909 00:24
+03 November 1909 06:54
+Sample Output 2:
+Среда
+
+Решение:
+function testDateTime(a, b) {
+    let x = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+    let y = new Date(a);
+    let z = new Date(b);
+    if (y==z) {
+        return (x[z.getDay()]);
+    } else if (y>z) {
+        return (x[y.getDay()]);
+    } else return (x[z.getDay()]);  
+}
+
+JavaScript. Математические функции
+
+Задача 1
+В этом задании в нашу функцию передается угол в градусах. Нужно вернуть из функции значение его синуса.
+(тригонометрические функции в JavaScript принимают аргументы только в радианах)
+
+Sample Input:
+348
+Sample Output:
+-0.20791169081775987
+
+Решение:
+function testMath(a) {
+    let x = (a*Math.PI)/180;
+    return x = Math.sin(x);
+}
+
+Задача 2
+Нужно вычислить и вернуть из функции площадь треугольника. Передаваемые в функцию аргументы 
+"a" и "b" - это длины сторон, а "c" - это угол между ними в градусах.
+
+Sample Input:
+2 10 16
+Sample Output:
+2.7563735581699915
+
+Решение:
+function testMath(a, b, c) {
+    let x = (c * Math.PI) / 180;
+    x = Math.sin(x);
+    let y = (a * b * x) / 2;
+    return y;
+}
+
+Задача 3
+В этом задании в нашу функцию передаются 4 числа. Необходимо вычислить результат деления большего 
+из этих чисел на меньшее, и округлив до ближайшего меньшего целого вернуть из функции.
+
+Sample Input:
+1 4 8 8
+Sample Output:
+8
+
+Решение:
+function testMath(a, b, c, d) {
+    let x = Math.floor((Math.max(a, b, c, d)) / (Math.min(a, b, c, d)));
+    return x;
+}
+
+Задача 4
+В этом задании необходимо выполнить возведение переменной a в степень b и возврат значения из функции.
+
+Sample Input:
+5 1
+Sample Output:
+5
+
+Решение:
+function testMath(a, b) {
+    let x = Math.pow(a, b);
+    return x;
+}
+
+JavaScript. Обработка ошибок
+
+Задача 1
+В этом задании в нашу функцию передаются два параметра: целочисленная переменная ("а") и некоторая функция ("func"). 
+Необходимо запустить функцию "func", с переменной "а" в качестве аргумента. Но вот проблема - в функции, похоже, оказалась ошибка. 
+Нужно возвратить имя (свойство "name") возникающей ошибки.
+
+Sample Input:
+9
+Sample Output:
+EvalError
+
+Решение:
+function testErrorFunc(a, func) { 
+    var ex;
+
+    try {
+    func(a);   
+    } catch(ex) {
+    return(ex.name);
+    }
+}
+
+JavaScript. Использование регулярных выражений
+
+Задача 1
+В этом задании в нашу функцию testRegExp первым параметром передается случайная строка(переменная s), 
+а вторым - случайная подстрока(переменная sub_s), которую нужно использовать в качестве шаблона регулярного выражения. 
+Нужно вернуть из функции строку, в которой будут перечислены через запятую все совпадения шаблона с первой строкой.
+
+Sample Input 1:
+Andsirdaarrevarariarewbutovearrmararan
+ar
+Sample Output 1:
+ar,ar,ar,ar,ar,ar,ar
+
+Sample Input 2:
+Extremitiyasiifbrieakfaistagreement
+i
+Sample Output 2:
+i,i,i,i,i,i
+
+function testRegExp(s, sub_s) {
+  var myPattern = new RegExp(sub_s,"g");    
+  var x = s.match(myPattern);
+  var result = x.join(','); 
+  return result;
 }
